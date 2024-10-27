@@ -8,7 +8,7 @@ This is the website for the Beyond Academia.
 # make sure you have all the dependencies
 pip install django
 
-#Also be sure that you are in the directory where the directory of manage.py exists
+#Also be sure that you are in the directory where the manage.py exists
 python3 manage.py runserver
 
 ```
