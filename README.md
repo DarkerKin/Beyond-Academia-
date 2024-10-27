@@ -3,7 +3,7 @@
 This is the website for the Beyond Academia.
 
 ```sh
-# To run this website use the following code
+# To run this website use the following code in terminal
 
 # make sure you have all the dependencies
 pip install django
