@@ -5,6 +5,9 @@ This is the website for the Beyond Academia.
 ```sh
 # To run this website use the following code in terminal
 
+# To get the code from github use
+git clone https://github.com/DarkerKin/BeyondAcademia.git
+
 # make sure you have all the dependencies
 pip install django
 
