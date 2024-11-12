@@ -1,0 +1,87 @@
+body{
+    background-color: #1b213b;
+}
+.safety{
+    color: #fcfafa;
+}
+.navbar-logo{
+    text-decoration: none;
+    color: #fcfafa;
+
+}
+#textbox{
+    align-items: center;
+    margin-top: 100px; 
+    width: 50%;  
+    padding: 10px; 
+    font-size: 16px;  
+    border: 1px solid #080808; 
+    border-radius: 4px; 
+    
+}
+#button1{
+    align-items: center;
+    margin-top: 100px; 
+    width: 50%;  
+    height: 70px;
+    padding: 10px; 
+    font-size: 16px;  
+    border: 1px solid #080808; 
+    border-radius: 4px; 
+    
+}
+#button2{
+    width:70px;  
+
+}
+
+#signup{
+    font-size: 20px;
+}
+#textbox2{
+    align-items: center;
+    margin-top: 50px; 
+    width: 50%;  
+    padding: 10px; 
+    font-size: 16px;  
+    border: 1px solid #080808;  
+    border-radius: 4px; 
+}
+.login{
+    color: #131212;
+    width:500px;
+    margin: 0 auto;
+    padding-top: 110px;
+    text-align: center;
+    font-family: sans-serif;
+    width: 1000px;
+    height: 1000px;
+    border: 20px solid;
+    background-color: #2692eb;
+    
+}
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.navbar-logo h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.navbar-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #fcfafa;
+}
+
+.navbar-links a:hover {
+    text-decoration: underline;
+}
+.navbar-logo a:hover {
+    text-decoration: underline;
+}

@@ -12,6 +12,8 @@ def safety(request):
     return render(request,'navbar_links/safety.html')
 def support(request):
     return render(request,'navbar_links/support.html')
+def login(request):
+    return render(request,'navbar_links/login.html')
 
 
 #These are the main webpages of the studybud
