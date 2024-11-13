@@ -85,3 +85,25 @@ body{
 .navbar-logo a:hover {
     text-decoration: underline;
 }
+.footer-left {
+    text-align: left;
+    color: #fcfafa;
+}
+.footer-fix{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #080808;
+    color: white;
+    text-align: center;
+}
+
+.footer-right {
+    text-align: right;
+}
+footer .social-media a {
+    color: black;
+    margin: 0 30px;
+    text-decoration: none;
+}
