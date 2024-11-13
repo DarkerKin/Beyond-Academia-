@@ -53,13 +53,13 @@ body{
 }
 .login{
     color: #131212;
-    width:500px;
+    
     margin: 0 auto;
     padding-top: 110px;
     text-align: center;
     font-family: sans-serif;
-    width: 1000px;
-    height: 1000px;
+    width: 700px;
+    height: 700px;
     border: 20px solid;
     background-color: #2692eb;
     
@@ -111,7 +111,7 @@ body{
     text-align: right;
 }
 footer .social-media a {
-    color: black;
+    color: white;
     margin: 0 30px;
     text-decoration: none;
 }
