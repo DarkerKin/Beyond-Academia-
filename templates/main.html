@@ -1,17 +1,18 @@
-{% load static %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+{% include 'navbar.html' %}
+{% load static %}
 <!DOCTYPE html>
 <html>
-    <head class="Beyond/Academia">
-        <title>Beyond Academia</title>
-    </head>
-    <body>
-        {% include 'navbar.html' %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Beyond/Academia</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    {% block content %}
 
-        {% block content %}
-        
-        {% endblock %}
-        {% include 'footer.html' %}
-    </body>
-</html>
+    {% endblock %}
+</body>
+<html></html>

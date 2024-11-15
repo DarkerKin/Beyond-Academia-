@@ -8,5 +8,7 @@ urlpatterns = [
     path("about/",views.about,name="about"),
     path("support/",views.support,name="support"),
     path("login/",views.login,name="Login"),
+    path('room/<str:pk>/',views.room,name="room"),
+
 
 ]
