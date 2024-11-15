@@ -24,6 +24,7 @@ body{
     
 }
 #button1{
+    
     align-items: center;
     margin-top: 100px; 
     width: 50%;  
@@ -242,3 +243,4 @@ ul li i {
     display: grid ;
     grid-template-columns: 1fr 3fr;
 }
+
