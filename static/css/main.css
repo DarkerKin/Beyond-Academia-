@@ -244,3 +244,8 @@ ul li i {
     grid-template-columns: 1fr 3fr;
 }
 
+.p {
+    color: white;
+    text-decoration: none;
+    
+}
