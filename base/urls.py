@@ -8,6 +8,7 @@ urlpatterns = [
     path("about/",views.about,name="about"),
     path("support/",views.support,name="support"),
     path("login/",views.loginPage,name="login"),
+    path("register/",views.registerPage,name="register"),
     path("logout/",views.logoutUser,name="logout"),
     path('room/<str:pk>/',views.room,name="room"),
     path('create-room/', views.createRoom, name="create-room"),
