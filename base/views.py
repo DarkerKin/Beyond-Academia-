@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 from .models import Room, Topic, Message
-from .forms import RoomForm
+from .forms import RoomForm, MessageForm
 
 #rooms = [
     #{'id':1,'name': 'resume help'},
@@ -186,3 +186,21 @@ def deleteMessage(request,pk):
   
 
     return render(request,'base/delete.html',{'obj':message})
+
+
+@login_required(login_url='login')
+def updateMessage(request,pk):
+    message = Message.objects.get(id=pk)
+    form = MessageForm(instance=message)
+
+    if request.user != message.user:
+        return HttpResponse('Must have created the post to edit ')
+
+    if request.method == 'POST':
+        form = MessageForm(request.POST,instance=message)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+  
+    context = {'form': form}
+    return render(request,'base/message_form.html',context)
