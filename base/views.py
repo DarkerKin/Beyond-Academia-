@@ -182,7 +182,7 @@ def deleteMessage(request,pk):
 
     if request.method == 'POST':
         message.delete()
-        return redirect('home')
+        return redirect('room', pk=message.room.id)
   
 
     return render(request,'base/delete.html',{'obj':message})
@@ -200,7 +200,7 @@ def updateMessage(request,pk):
         form = MessageForm(request.POST,instance=message)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('room', pk=message.room.id)
   
     context = {'form': form}
     return render(request,'base/message_form.html',context)
