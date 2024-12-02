@@ -1,68 +1,75 @@
 {% load static %}
-{% include '../navbar.html' %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Safety & Support</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome for icons -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <title>Beyond Academia - Safety & Support</title>
+    <link rel="stylesheet" href="{% static 'css/support.css' %}">
 </head>
 <body>
-
-    <header class="header">
-        <div class="container">
-            <h1>Safety & Support</h1>
-            <p id="sup">We are here to help! Get in touch with us for any support queries.</p>
+    <header>
+        <div class="header-left">
+            <h1>Beyond Academia</h1>
+        </div>
+        <div class="header-center">
+            <input type="text" placeholder="Search">
+        </div>
+        <div class="header-right">
+            <a href="/safety/">Safety</a>
+            <a href="/about/">About</a>
+            <button>
+                {% if request.user.is_authenticated%}
+                <a href="{% url 'logout'%}">Logout</a>
+                {% else %}
+                <a href="{% url 'login'%}">Login</a>
+                {% endif %}
+            </button>
         </div>
     </header>
-
-    <section class="contact-info">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <ul class="phone">
-                <li><i class="fas fa-phone"></i> Phone: My phone</li>
-                <li><i class="fas fa-envelope"></i> Email: My email</li>
-                <li><i class="fas fa-location-arrow"></i> Address: My house</li>
-            </ul>
-        </div>
-    </section>
-
-    <section class="faq">
-        <div class="container">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-item">
-                <h3>How do I reset my password?</h3>
-                <p>To reset your password, go to the login page and click on "Forgot Password". Enter your email address and follow the instructions.</p>
+    <main>
+        <section class="support">
+            <h2>Beyond Academia Safety & Support</h2>
+            <p>We are here to help! Get in touch with us for any support queries.</p>
+            <div class="contact">
+                <h3>Contact Us</h3>
+                <p>📞 Phone: (919)-800-help</p>
+                <p>✉️ Mail: beyond.academia.help@email.com</p>
+                <p>🏠 Address: beyond academia LLC<br>Nowhere, NC<br>US, 27xxx</p>
             </div>
-            <div class="faq-item">
-                <h3>How can I track my order?</h3>
-                <p>You can track your order by visiting the "Order History" section under your account. There, you’ll find the tracking link for all your orders.</p>
+            <div class="faq">
+                <h3>FAQ</h3>
+                <div class="faq-item">
+                    <h4>How do I reset my password?</h4>
+                    <p>To reset your password, go to the login page and click on "Forgot Password". Enter your email address and follow the instructions.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How can I track my order?</h4>
+                    <p>You can track your order by visiting the "Order History" section under your account. There, you’ll find the tracking link for all your orders.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Where can I find your product manuals?</h4>
+                    <p>Product manuals are available in the "Downloads" section of the website. You can also access them through your account under "My Products".</p>
+                </div>
             </div>
-            <div class="faq-item">
-                <h3>Where can I find your product manuals?</h3>
-                <p>Product manuals are available in the "Downloads" section of the website. You can also access them through your account under "My Products".</p>
+        </section>
+        <section class="support-form">
+            <div class="container">
+                <h2>Contact Support</h2>
+                <form action="#" method="POST">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" placeholder="Enter your message here" rows="6" required></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
             </div>
-        </div>
-    </section>
-
-    <section class="support-form">
-        <div class="container">
-            <h2>Contact Support</h2>
-            <form action="#" method="POST">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" required>
-
-                <label for="email">Your Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
-
-                <label for="message">Your Message</label>
-                <textarea id="message" name="message" placeholder="Enter your message here" rows="6" required></textarea>
-
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    </section>
-{% include '../footer.html' %}
+        </section>
+    </main>
+</body>
+</html>
