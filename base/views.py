@@ -9,13 +9,7 @@ from django.http import HttpResponse
 from .models import Room, Topic, Message
 from .forms import RoomForm, MessageForm
 
-#rooms = [
-    #{'id':1,'name': 'resume help'},
-    #{'id':2,'name': 'coding help'},
-    #{'id':3,'name': 'web dev help'},
-#]
 
-# these are the html links to the navbar about, support and safety.
 
 def about(request):
     return render(request,'navbar_links/about.html')
@@ -31,7 +25,6 @@ def support(request):
 
 
 
-#These are the main webpages of the studybud
 
 def loginPage(request):
 
@@ -94,13 +87,14 @@ def home(request):
 
     topics = Topic.objects.all()
     room_count = rooms.count()
+    room_messages = Message.objects.filter(Q(room__topic__name__icontains=q))
 
-    context = {'rooms': rooms, 'topics': topics, 'room_count': room_count}
+    context = {'rooms': rooms, 'topics': topics, 'room_count': room_count, 'room_messages' :room_messages,}
     return render(request,'base/home.html',context )
 
 def room(request, pk):
     room = Room.objects.get(id=pk)
-    room_messages = room.message_set.all().order_by('-created')
+    room_messages = room.message_set.all()
     participants = room.participants.all()
     if request.method =='POST':
         message = Message.objects.create(
@@ -204,3 +198,25 @@ def updateMessage(request,pk):
   
     context = {'form': form}
     return render(request,'base/message_form.html',context)
+
+
+
+def profile(request,pk):
+    user = User.objects.get(id=pk)
+    rooms = user.room_set.all()
+    room_messages = user.message_set.all()
+    topics = Topic.objects.all()
+    context = {'user':user, 'rooms':rooms, 'room_messages':room_messages, 'topics': topics}
+    return render(request, 'base/profile.html',context)
+  
+
+
+
+    
+def logoutUser(request):
+
+
+   logout(request)
+   return redirect('home')
+
+
