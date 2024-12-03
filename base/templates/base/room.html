@@ -12,27 +12,33 @@
 
 <div class="room-container">
 
-    <div>
+    <div class="home-content">
 
         <h1>{{room.name}}</h1>
         <p>{{room.description}}</p>
 
 
         <div class="comment-wrapper">
-            <h3>Conversation</h3>
+            <h3>Recent Conversation</h3>
             <hr>
 
             {% for message in room_messages %}
-            <div>
-                {%  if request.user == message.user %}
+            {%  if request.user == message.user %}
                 <a href="{%url 'update-message' message.id%}">Edit</a>
                 <a href="{% url 'delete-message' message.id %}">Delete</a>
-                {% endif %}
-                    
+            {% endif %}
+            <div class="discussion-item">
+                <p class="date">{{message.created|timesince }}ago</p>
+                <h3>{{message.user}}</h3>
+                <p>{{message.body}}</p>
+            </div>
+
+
+            <!-- <div>  
                 <small>@{{message.user}} {{message.created|timesince }}ago </small>
                 <p>{{message.body}}</p>
                 <hr>
-            </div>
+            </div> -->
             {%endfor%}
         </div>
         
@@ -48,7 +54,7 @@
 
     </div>
 
-    <div>
+    <div class="">
         <h3>Contributers</h3>
         <hr>
         {% for user in participants %}

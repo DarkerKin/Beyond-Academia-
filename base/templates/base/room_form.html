@@ -1,11 +1,36 @@
 {% extends 'main.html' %}
+{% load static %}
 
 {% block content %}
-<div>
+
+<link rel="stylesheet" href="{% static 'css/create-room.css' %}">
+<div class="create-post-container">
+    <div class="create-post-card">
+        <div class="card-header">
+            <a href="/" class="back-link">←</a> Create Post
+        </div>
+        <div class="form-container">
+            <form action="#" method="POST">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="tags">Tags:</label>
+                <input type="text" id="tags" name="tags" required>
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="6" required></textarea>
+
+                <button type="submit">Post</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--     
     <form method="POST" action="">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Submit" />
-    </form>
-</div>
+    </form> -->
+
 {% endblock content %}
