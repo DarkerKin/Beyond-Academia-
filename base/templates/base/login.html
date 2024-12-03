@@ -1,31 +1,29 @@
 {% extends 'main.html' %}
+{% load static %}
 
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-
-<div>
-    <form method="POST" action="">
-        {% csrf_token %}
-        <div class="login">
-            <div id="box1">
-         <body>
-            <h1 id="welcome"> Welcome</h1>
-            <h1> Beyond/Academia</h1>
-            <input id="textbox" type="text" name="username" placeholder="Username...">
-            <input id="textbox2" type="password" name="password" placeholder="Password...">
-            <input id="button1" type="submit" value="Login"/>
-            
-         </body>
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<div class="login-container">
+    <div class="login-card">
+        <div class="left">
+            <h2><strong>Beyond</strong><br><strong>Academia</strong></h2>
         </div>
+        <div class="divider"></div>
+        <div class="right">
+            <h3>Login</h3>
+            <form action="#" method="POST">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
 
-    </form>
-    <h1 id="signup">Don't have an account? <a href="{% url 'register' %}" id="button2">Signup</a></h1>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
 
-
-
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="{% url 'register' %}">register</a></p>
+        </div>
+    </div>
 </div>
 
 
-{% include '../footer.html' %}
 {% endblock content %}

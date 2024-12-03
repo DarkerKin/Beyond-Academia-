@@ -1,11 +1,33 @@
 {% extends 'main.html' %}
-
+{% load static %}
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<body>
-    <div class="register-container">
-        <!-- Registration Form -->
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<div class="login-container">
+    <div class="login-card">
+        <div class="left">
+            <h2><strong>Beyond</strong><br><strong>Academia</strong></h2>
+        </div>
+        <div class="divider"></div>
+        <div class="right">
+            <h3>Register</h3>
+            <form action="#" method="POST">
+                <label for="username">Enter Username</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="re-password">Re-Enter Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="{% url 'login' %}">login</a></p>
+        </div>
+    </div>
+</div>
+
+    <!-- <div class="register-container">
         <form method="POST" action="">
             {% csrf_token %}
             {{ form.as_p }}
@@ -14,8 +36,6 @@
           
         </form>
         <h1 id="signup">Already have an account? <a href="{% url 'login' %}" id="button2">Login</a></h1>
-    </div>
-</body>
-</html>
-{% include '../footer.html' %}
+    </div> -->
+
 {% endblock content %}
