@@ -19,13 +19,6 @@ def support(request):
     return render(request,'navbar_links/support.html')
 
 
-
-
-
-
-
-
-
 def loginPage(request):
 
     if request.user.is_authenticated:
