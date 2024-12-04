@@ -12,6 +12,7 @@
         <div class="right">
             <h3>Login</h3>
             <form action="#" method="POST">
+                {% csrf_token %}
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
 

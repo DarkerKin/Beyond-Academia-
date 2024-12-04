@@ -22,13 +22,23 @@
             <h3>Recent Conversation</h3>
             <hr>
 
+            {% if request.user.is_authenticated %}
+        <div class="comment-form">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <input type="text" name="body" placeholder="Write your message here..."/>
+            </form>
+        </div>
+        {% endif %}
+
+
             {% for message in room_messages %}
             {%  if request.user == message.user %}
                 <a href="{%url 'update-message' message.id%}">Edit</a>
                 <a href="{% url 'delete-message' message.id %}">Delete</a>
             {% endif %}
             <div class="discussion-item">
-                <p class="date">{{message.created|timesince }}ago</p>
+                <p class="date">{{message.created|timesince }} ago</p>
                 <h3>{{message.user}}</h3>
                 <p>{{message.body}}</p>
             </div>
@@ -43,20 +53,18 @@
         </div>
         
         
-        {% if request.user.is_authenticated %}
-        <div class="comment-form">
-            <form method="POST" action="">
-                {% csrf_token %}
-                <input type="text" name="body" placeholder="Write your message here..."/>
-            </form>
-        </div>
-        {% endif %}
-
+        
     </div>
 
     <div class="">
         <h3>Contributers</h3>
         <hr>
+        {% if room.host not in participants %}
+        <div>
+            <p>@{{room.host}}</p>
+
+        </div>
+        {% endif %}
         {% for user in participants %}
 
         <div>

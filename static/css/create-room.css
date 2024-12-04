@@ -16,7 +16,7 @@
 }
 
 .card-header {
-    background-color: #1e3ba1;
+    background-color: #1a1aff;
     color: #fff;
     padding: 10px;
     border-radius: 10px 10px 0 0;
@@ -42,7 +42,7 @@ form label {
 }
 
 
-form input,
+.form-container form input,
 form textarea {
 
     padding: 10px;
@@ -51,10 +51,10 @@ form textarea {
     font-size: 14px;
 }
 
-form button {
+.form-container form button {
     align-self: flex-end;
     padding: 10px 15px;
-    background-color: #1e3ba1;
+    background-color: #1a1aff;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -62,10 +62,13 @@ form button {
     cursor: pointer;
 }
 
-form button:hover {
+.form-container form button:hover {
     background-color: #162c79;
 }
 
 .form-container{
     margin:20px;
+}
+.navbar-form{
+    padding-top: 100px;
 }

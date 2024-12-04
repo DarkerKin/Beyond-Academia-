@@ -36,10 +36,11 @@
 
 
                 <div class="discussion-item">
-                    <p class="date">Date: 13 March 2024</p>
-                    <h3>{{room.host.username}}</h3>
-                    <h4><a href="{%url 'room' room.id%}">{{room.topic}}</a></h4>
-                    <p>{{room.name}}</p>
+                    
+                    <p class="date">{{room.created|timesince }} ago</p>
+                    <h3><a style="text-decoration: none; color: black;" href="{%url 'room' room.id%}">{{room.name}}</a></h3>
+                    <h4>{{room.topic}}</h4>
+                    <p>{{room.host.username}}</p>
                 </div>
 
 

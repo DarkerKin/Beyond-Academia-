@@ -62,7 +62,6 @@ def logoutUser(request):
     logout(request)
     return redirect('home')
 
-
 def registerPage(request):
     page = 'register'
     form = UserCreationForm()
@@ -80,8 +79,6 @@ def registerPage(request):
     return render(request,'base/register.html', {'form':form} )
 
 
-
-
 def home(request):
 
     q = request.GET.get('q') if  request.GET.get('q') != None else ''
@@ -90,7 +87,7 @@ def home(request):
         Q(topic__name__icontains=q,) |
         Q(name__icontains=q)|
          Q(description__icontains=q)
-        )
+        ) 
 
     topics = Topic.objects.all()
     room_count = rooms.count()
@@ -126,11 +123,20 @@ def createRoom(request):
     if request.method == 'POST':
         form = RoomForm(request.POST)
         if form.is_valid():
-            form.save()
+            # Get or create the topic instance from the input
+            topic_name = form.cleaned_data.get('topic')
+            topic, created = Topic.objects.get_or_create(name=topic_name.strip())
+
+            # Save the room
+            room = form.save(commit=False)  # Don't save yet to the database
+            room.topic = topic  # Assign the Topic instance
+            room.host = request.user  # Assign the logged-in user as the host
+            room.save()  # Save the Room instance to the database
             return redirect('home')
-        
+
     context = {'form': form}
-    return render(request,'base/room_form.html',context )
+    return render(request, 'base/room_form.html', context)
+
 
 
 
@@ -192,7 +198,11 @@ def deleteMessage(request,pk):
 def updateMessage(request,pk):
     message = Message.objects.get(id=pk)
     form = MessageForm(instance=message)
-
+    print(message.user)
+    print(message.room)
+    # username = form.cleaned_data.get('user')
+    # room = form.cleaned_data.get('room')
+    #print(username,room)
     if request.user != message.user:
         return HttpResponse('Must have created the post to edit ')
 
@@ -202,5 +212,5 @@ def updateMessage(request,pk):
             form.save()
             return redirect('room', pk=message.room.id)
   
-    context = {'form': form}
+    context = {'form': form, 'username':message.user, 'room':message.room}
     return render(request,'base/message_form.html',context)
