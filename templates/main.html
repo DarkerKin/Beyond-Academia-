@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Beyond/Academia</title>
+   
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 </head>
 <body>
-    
-{% include 'navbar.html' %}
+    {% include 'navbar.html' %}
 
     {% if messages %}
     <div class="messages">
@@ -25,5 +26,19 @@
     {% block content %}
     {% endblock %}
 
+    <footer class="footer-fix">
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>© 2024 Beyond/Academia. All rights reserved.</p>
+            </div>
+            <div class="footer-right">
+                <div class="social-media">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

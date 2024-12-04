@@ -1,5 +1,4 @@
 {% load static %}
-{% include '../navbar.html' %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +9,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome for icons -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 </head>
-<body>
+{% include '../navbar.html' %}
+<body >
 
     <header class="header">
         <div class="container">
@@ -34,16 +34,20 @@
         <div class="container">
             <h2>Frequently Asked Questions</h2>
             <div class="faq-item">
-                <h3>How do I reset my password?</h3>
-                <p>To reset your password, go to the login page and click on "Forgot Password". Enter your email address and follow the instructions.</p>
+                <h3>what is the mission behind Beyond/Academia</h3>
+                <p>Beyond/Academia envisions a world where computer science students feel fully prepared to conquer both academic challenges and the demands of the tech industry. By fostering collaboration, delivering personalized resources, and simplifying career preparation, we strive to make every student’s journey successful, engaging, and fulfilling..</p>
             </div>
             <div class="faq-item">
-                <h3>How can I track my order?</h3>
-                <p>You can track your order by visiting the "Order History" section under your account. There, you’ll find the tracking link for all your orders.</p>
+                <h3>what is our mission?</h3>
+                <p>At Beyond/Academia, we are dedicated to empowering computer science students by merging academic success with career readiness. Our mission is to create a seamless platform where students can collaborate, learn, and prepare for the future, fostering a supportive and resourceful community.
+
+                    Through personalized tools, academic support, and career-focused resources, we aim to help students navigate their coursework, build essential skills, and confidently step into the professional world. Beyond/Academia is your companion for academic excellence and career achievement.
+                    
+                    Empowering students today for the tech leaders of tomorrow..</p>
             </div>
             <div class="faq-item">
-                <h3>Where can I find your product manuals?</h3>
-                <p>Product manuals are available in the "Downloads" section of the website. You can also access them through your account under "My Products".</p>
+                <h3>how can i get started?</h3>
+                <p>Beyond academia is free for all students! all you have to do is sign up and get started on netwoorking or seeking help/advice from other students.</p>
             </div>
         </div>
     </section>

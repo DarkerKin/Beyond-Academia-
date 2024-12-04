@@ -1,14 +1,19 @@
-<h1> Browse Topics</h1>
+<div class="topic">
+    <div >
+        <h3 > Browse Topics</h3>
+        <h5 >{{room_count}} rooms available</h5>
+    <hr>
+    
+    <div class="topicall">
+        <a href="{% url 'home' %}">All</a>
         <hr>
-
-        <div>
-            <a href="{% url 'home' %}">All</a>
+    </div>
+    
+    {% for topic in topics %}
+        <div class="topics">
+            <a href="{% url 'home' %}?q={{ topic.name }}">{{ topic.name }}</a>
+            <hr>
         </div>
-
-        {% for topic in topics %}
-
-        <div>
-        <a href="{% url 'home' %}?q={{topic.name}}">{{topic.name}}</a>
-        </div>
-
-        {% endfor %}
+    {% endfor %}
+    </div>
+</div>
