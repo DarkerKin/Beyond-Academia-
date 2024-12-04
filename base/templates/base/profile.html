@@ -18,8 +18,12 @@ grid-template-columns: 1fr 3fr 1fr;" class="profile">
    
    <div>
       {%include 'base/topics_component.html'%} 
+      <div class="logout">
+         <button style=" margin-left: 90px; background-color: #007BFF; ; width: 100px; height:  30px;"><a style="text-decoration: none;text-align: center;" style="padding-left: 125px;" href="{% url 'logout'%}">Logout</a></button>
+      </div>
 
    </div>
+  
 
    
 

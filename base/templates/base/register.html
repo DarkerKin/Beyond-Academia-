@@ -1,10 +1,11 @@
 {% extends 'main.html' %}
 
 {% block content %}
+<div style=" background: linear-gradient(to left, #1a1a1a, #007BFF);">
     <div class="register-container" >
         <!-- Registration Form -->
 
-        <form method="POST" action="" >
+        <form class="form1" method="POST" action="" >
             {% csrf_token %}
 
             <label for="username">Enter Username</label>
@@ -19,5 +20,8 @@
         </form>
         <h1 id="signup">Already have an account? <a href="{% url 'login' %}" id="button2">Login</a></h1>
     </div>
+</div>
+    
+    
 {% include '../footer.html' %}
 {% endblock content %}

@@ -1,31 +1,30 @@
 {% extends 'main.html' %}
-
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-
-<div>
-    <form method="POST" action="">
-        {% csrf_token %}
-        <div class="login">
-            <div id="box1">
-         <body>
-            <h1 id="welcome"> Welcome</h1>
-            <h1> Beyond/Academia</h1>
-            <input id="textbox" type="text" name="username" placeholder="Username...">
-            <input id="textbox2" type="password" name="password" placeholder="Password...">
-            <input id="button1" type="submit" value="Login"/>
-            
-         </body>
-        </div>
-
-    </form>
-    <h1 id="signup">Don't have an account? <a href="{% url 'register' %}" id="button2">Signup</a></h1>
-
-
-
+<div  style="background: linear-gradient(to left, #1a1a1a, #007BFF);"> 
+    <div class="login-container">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="login">
+                <div id="box1">
+             <body>
+                <h1 id="welcome"> Welcome</h1>
+                <h1> Beyond/Academia</h1>
+                <input id="textbox" type="text" name="username" placeholder="Username...">
+                <input id="textbox2" type="password" name="password" placeholder="Password...">
+                <input id="button1" type="submit" value="Login"/>
+                
+             </body>
+            </div>
+    
+        </form>
+        <h1 id="signup">Don't have an account? <a href="{% url 'register' %}" id="button2">Signup</a></h1>
+    
+    
+        
+       
+    </div>
 </div>
-
 
 {% include '../footer.html' %}
 {% endblock content %}
+
