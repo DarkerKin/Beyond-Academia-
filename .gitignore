@@ -1,0 +1,4 @@
+./base/__pycache__
+./base/migrations/__pycache__
+./BeyondAcademia/__pycache__
+./db.sqllite3

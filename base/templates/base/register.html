@@ -1,21 +1,23 @@
 {% extends 'main.html' %}
 
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<body>
-    <div class="register-container">
+    <div class="register-container" >
         <!-- Registration Form -->
-        <form method="POST" action="">
+
+        <form method="POST" action="" style="display: flex; flex-direction: column; ">
             {% csrf_token %}
-            {{ form.as_p }}
+
+            <label for="username">Enter Username</label>
+            {{form.username}}
+            <label for="password">Password</label>
+            {{form.password1}}
+            <label for="re-password">Re-Enter Password</label>
+            {{form.password2}}
             <input  type="submit" value="Register"/>
 
           
         </form>
         <h1 id="signup">Already have an account? <a href="{% url 'login' %}" id="button2">Login</a></h1>
     </div>
-</body>
-</html>
 {% include '../footer.html' %}
 {% endblock content %}
