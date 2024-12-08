@@ -4,7 +4,13 @@
         <hr>
         {%for message in room_messages%}
         <div> 
-            <small style="color: white;"  ><a style="color: white;" href=" 'user-profile' message.user.id"></a ><a style="color: #007BFF; " >@{{message.user}}</a> replied to "{{message.room}}"</small>
+            <small style="color: white;"  ><a style="color: white;" href=" 'user-profile' message.user.id"></a ><a style="color: #007BFF; " >@{{message.user}}
+                <td>
+                        {% for group in user.groups.all %}
+                        {{ group.name }}
+                        {% endfor %}
+                     </td>
+            </a> replied to "{{message.room}}"</small>
             <small style="color: white;" > {{message.created| timesince}}</small>
             
             <p>{{message}}</p>

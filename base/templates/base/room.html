@@ -26,8 +26,14 @@
                 <a href="{% url 'delete-message' message.id %}">Delete</a>
                 {% endif %}
                 
-                <small>@{{ message.user }} {{ message.created|timesince }} ago </small>
-                <p>{{ message.body }}</p>
+                <small style="color: white;">@{{ message.user }} -
+                    {% for group in user.groups.all %}
+                {{ group.name }}
+                {% if not forloop.last %}, {% endif %}
+            {% empty %}
+                No groups
+            {% endfor %}{{ message.created|timesince }} ago </small>
+                <p style="color: white;">{{ message.body }}</p>
                 <hr>
             </div>
             {% endfor %}
@@ -44,18 +50,22 @@
         {% endif %}
     </div>
 
-    <!-- Contributors Section -->
+  <!-- Contributors Section -->
     <div class="contributors">
-        <h3>Contributors</h3>
-        <hr>
-        {% for user in participants %}
-        <div>
-            <p>@{{ user.username }}</p>
-        </div>
-        {% endfor %}
+    <h3>Contributors</h3>
+    <hr>
+    {% for user in participants %}
+    <div>
+        <p>@{{ user.username }} -
+            {% for group in user.groups.all %}
+                {{ group.name }}
+                {% if not forloop.last %}, {% endif %}
+            {% empty %}
+                No groups
+            {% endfor %}
+        </p>
     </div>
-    
-
+    {% endfor %}
 </div>
 
 {% endblock %}

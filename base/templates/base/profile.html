@@ -9,7 +9,13 @@
        
    </div>
 </section>
-<h1 style="padding-left: 75px;"> {{ user.username }}</h1>
+<h1 style="padding-left: 75px;"> {{ user.username }} -
+   <td>
+      {% for group in user.groups.all %}
+      {{ group.name }}
+      {% endfor %}
+   </td>
+</h1>
 <hr>
 
 

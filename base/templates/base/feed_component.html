@@ -2,16 +2,24 @@
     {% for room in rooms %}
     <div class="room-container">
         
-       
-        <a href="{% url 'user-profile' room.host.id %}">@{{ room.host.username }}</a>
+        {% if room.host and room.host.id %}
+            <a href="{% url 'user-profile' room.host.id %}">
+                @{{ room.host.username }} - 
+                {% for group in room.host.groups.all %}
+                    {{ group.name }}
+                    {% if not forloop.last %}, {% endif %}
+                {% empty %}
+                    No groups
+                {% endfor %}
+            </a>
+        {% else %}
+            <span>No host available</span>
+        {% endif %}
 
-  
-        <h5><a href="{%url 'room' room.id%}">{{room.name}}</a></h5>
+        <h5><a href="{% url 'room' room.id %}">{{ room.name }}</a></h5>
 
-
-        <small style="color: white;">{{room.topic.name}}</small>
+        <small style="color: white;">{{ room.topic.name }}</small>
         <hr>
     </div>
-
     {% endfor %}
- </div>
+</div>

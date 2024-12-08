@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User,AbstractUser
 # Create your models here.
 
 
@@ -41,3 +41,19 @@ class Message(models.Model):
         return self.body[0:50]
     
     
+class CreateUser(models.Model):
+    ROLES = (
+
+        ('EDUCATOR', 'Educator'),
+        ('STUDENT', 'Student'),
+        ('EMPLOYER', 'Employer'),
+
+    )
+
+    name= models.CharField(max_length=100, null=True)
+    last_name= models.CharField(max_length=100, null=True)
+    roles = models.CharField(max_length=50, choices = ROLES, null=True)
+    date_joined = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
