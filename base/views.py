@@ -108,10 +108,12 @@ def createRoom(request):
     if request.method == 'POST':
         form = RoomForm(request.POST)
         if form.is_valid():
-            room = form.save(commit=False)
-            room.host = request.user  
             room = form.save(commit=False)  
+            topic_name = form.cleaned_data.get('topic')
+            topic, created = Topic.objects.get_or_create(name=topic_name.strip())
+            room.topic = topic
             room.host = request.user
+            print(topic)
             room.save()
             return redirect('home')
 
